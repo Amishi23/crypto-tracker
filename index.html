@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="header">
+    <h1>Crypto Dashboard</h1>
+    <button id="themeToggle" title="Toggle theme">🌙</button>
+</header>
+
+<main>
+
+    <!-- 🔍 Search Bar -->
+    <div class="search-bar">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search crypto (e.g. bitcoin)"
+        />
+        <button onclick="searchCoin()">Search</button>
+    </div>
+
+    <!-- 🔽 Sort Controls -->
+    <div class="controls">
+        <select id="sortSelect">
+            <option value="default">Sort By</option>
+            <option value="price">Price</option>
+            <option value="market_cap">Market Cap</option>
+            <option value="change">24h Change</option>
+        </select>
+
+        <select id="orderSelect">
+            <option value="desc">High → Low</option>
+            <option value="asc">Low → High</option>
+        </select>
+    </div>
+
+    <!-- 📊 Search Result / Coin Details -->
+    <div id="coinDetails" class="coin-details">
+        <p>Search a coin to see details</p>
+    </div>
+
+    <!-- 🪙 Top Cryptocurrencies -->
+    <section>
+        <h2>Top Cryptocurrencies</h2>
+        <div id="coinsContainer" class="coins-grid"></div>
+    </section>
+
+    <!-- ⭐ Watchlist -->
+    <section>
+        <h2>Your Watchlist</h2>
+        <div id="watchlist" class="coins-grid"></div>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

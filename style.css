@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Background */
+body {
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: white;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+}
+
+body.light {
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    color: #111827;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light header {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Theme Button */
+#themeToggle {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #4f46e5;
+    color: white;
+    transition: 0.2s;
+}
+
+#themeToggle:hover {
+    transform: scale(1.05);
+}
+
+/* Main */
+main {
+    padding: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+body.light .search-bar input {
+    background: white;
+    color: black;
+}
+
+.search-bar button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.search-bar button:hover {
+    transform: translateY(-2px);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.controls select {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+}
+
+body.light .controls select {
+    background: white;
+    color: black;
+}
+
+/* Sections */
+section {
+    margin-top: 30px;
+}
+
+section h2 {
+    margin-bottom: 15px;
+}
+
+/* Grid */
+.coins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+/* Cards */
+.coin-card {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 18px;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    transition: 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light .coin-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+}
+
+.coin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.coin-card img {
+    width: 40px;
+    margin-bottom: 8px;
+}
+
+.coin-card h3 {
+    margin-bottom: 6px;
+}
+
+.coin-card p {
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+/* Buttons inside cards */
+.coin-card button {
+    margin-top: 10px;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #22c55e;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.coin-card button:hover {
+    background: #16a34a;
+}
+
+/* Coin details box */
+.coin-details {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px);
+}
+
+body.light .coin-details {
+    background: white;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 12px 15px;
+    }
+
+    #themeToggle {
+        font-size: 1rem;
+        padding: 6px 8px;
+        min-width: 40px;
+        height: 36px;
+    }
+}
+/* Fix dropdown option visibility */
+.controls select option {
+    color: black;
+    background: white;
+}
+
+/* Dark mode select */
+body:not(.light) .controls select {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+/* Light mode select */
+body.light .controls select {
+    background: white;
+    color: black;
+}
+/* Price change colors */
+.green {
+    color: #22c55e; /* green */
+    font-weight: 600;
+}
+
+.red {
+    color: #ef4444; /* red */
+    font-weight: 600;
+}
+
