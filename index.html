@@ -5,28 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crypto Dashboard</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
 
 <header class="header">
     <h1>Crypto Dashboard</h1>
-    <button id="themeToggle" title="Toggle theme">🌙</button>
+
+    <div class="theme-switcher">
+  <select id="themeSelect">
+    <option value="dark">🌙 Dark</option>
+    <option value="light">☀️ Light</option>
+    <option value="neon">⚡ Neon</option>
+    <option value="glass">🧊 Glass</option>
+  </select>
+</div>
+
 </header>
 
 <main>
 
-    <!-- 🔍 Search Bar -->
-    <div class="search-bar">
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search crypto (e.g. bitcoin)"
-        />
-        <button onclick="searchCoin()">Search</button>
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-card">🌍 Coins: <span id="coinCount">--</span></div>
+        <div class="stat-card">₿ BTC Dominance: <span id="btcDominance">--</span>%</div>
+    <p id="refreshStatus">Last updated: --</p>
+
     </div>
 
-    <!-- 🔽 Sort Controls -->
+    <!-- SEARCH -->
+    <div class="search-bar">
+        <input id="searchInput" placeholder="Search crypto (e.g. bitcoin)" />
+        <button onclick="searchCoin()">Search</button>
+    </div>
+<div class="alert-box">
+    <input class="alertInput" placeholder="Alert price (USD)" />
+<button onclick="setAlert(this)">Set Alert</button>
+
+</div>
+
+
+
+
+    <!-- SORT -->
     <div class="controls">
         <select id="sortSelect">
             <option value="default">Sort By</option>
@@ -41,18 +64,43 @@
         </select>
     </div>
 
-    <!-- 📊 Search Result / Coin Details -->
+    <!-- SEARCH RESULT -->
     <div id="coinDetails" class="coin-details">
-        <p>Search a coin to see details</p>
+        Search a coin to see details
+        <canvas id="priceChart" height="120"></canvas>
+
     </div>
 
-    <!-- 🪙 Top Cryptocurrencies -->
+    <!-- TOP COINS -->
     <section>
         <h2>Top Cryptocurrencies</h2>
-        <div id="coinsContainer" class="coins-grid"></div>
+ <div id="coinsContainer" class="coins-grid">
+
+  <div class="coin-card skeleton" style="height:140px;"></div>
+  <div class="coin-card skeleton" style="height:140px;"></div>
+  <div class="coin-card skeleton" style="height:140px;"></div>
+
+  <!-- Bitcoin Card -->
+  <div class="coin-card">
+    <img src="bitcoin.png" alt="Bitcoin" />
+
+    <input id="alertInput" placeholder="Alert price (USD)" />
+    <button onclick="setAlert()">Set Alert</button>
+
+    <h3>Bitcoin</h3>
+
+    <p><span class="trend-dot trend-up"></span> +2.4%</p>
+    <p>Market Cap: $820B</p>
+
+    <button>Add to Watchlist</button>
+  </div>
+
+</div>
+
+
     </section>
 
-    <!-- ⭐ Watchlist -->
+    <!-- WATCHLIST -->
     <section>
         <h2>Your Watchlist</h2>
         <div id="watchlist" class="coins-grid"></div>
@@ -61,5 +109,9 @@
 </main>
 
 <script src="script.js"></script>
+
+<div id="toast"></div>
+
+
 </body>
 </html>
